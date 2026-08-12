@@ -69,12 +69,12 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Simple, transparent pricing</h2>
-            <p className="text-gray-500 mb-10">Plans starting from R499/month. No hidden fees.</p>
+            <p className="text-gray-500 mb-10">Plans starting from R599/month. No hidden fees.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
               {[
-                { name: "Starter", price: "R499", employees: "Up to 10 employees" },
-                { name: "Professional", price: "R699", employees: "Up to 50 employees", popular: true },
-                { name: "Business", price: "R1 499", employees: "Up to 200 employees" },
+                { name: "Starter", price: "R599", employees: "Up to 10 employees" },
+                { name: "Professional", price: "R799", employees: "Up to 50 employees", popular: true },
+                { name: "Business", price: "R1 599", employees: "Up to 200 employees" },
               ].map((plan) => (
                 <div key={plan.name} className={`p-6 rounded-2xl border-2 ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white" : "border-gray-200 bg-white"}`}>
                   {plan.popular && <div className="text-xs font-semibold uppercase tracking-wide text-indigo-200 mb-2">Most Popular</div>}

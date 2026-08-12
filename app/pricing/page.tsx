@@ -4,14 +4,14 @@ import Footer from "@/components/footer";
 const plans = [
   {
     name: "Starter",
-    price: "R499",
+    price: "R599",
     employees: "Up to 10 employees",
     onboarding: "R5 000",
     features: ["Payroll processing", "Payslip generation", "Leave management", "Employee self-service portal", "UIF & PAYE calculations", "Email support"],
   },
   {
     name: "Professional",
-    price: "R699",
+    price: "R799",
     employees: "Up to 50 employees",
     onboarding: "R10 000",
     popular: true,
@@ -19,7 +19,7 @@ const plans = [
   },
   {
     name: "Business",
-    price: "R1 499",
+    price: "R1 599",
     employees: "Up to 200 employees",
     onboarding: "R15 000",
     features: ["Everything in Professional", "Advanced reporting", "Custom integrations", "Dedicated account manager", "Phone support", "SLA guarantee"],
@@ -31,6 +31,14 @@ const plans = [
     onboarding: "R20 000+",
     features: ["Everything in Business", "Custom development", "On-site training", "White-label options", "API access", "24/7 support"],
   },
+];
+
+const outsourcingTiers = [
+  { employees: "1 – 10 employees", price: "R750", note: "per month" },
+  { employees: "11 – 25 employees", price: "R1 500", note: "per month" },
+  { employees: "26 – 50 employees", price: "R2 500", note: "per month" },
+  { employees: "51 – 100 employees", price: "R4 500", note: "per month" },
+  { employees: "101 – 1 000+ employees", price: "Custom", note: "contact us for a quote" },
 ];
 
 export default function PricingPage() {
@@ -56,7 +64,7 @@ export default function PricingPage() {
                     {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal">/mo</span>}
                   </div>
                   <div className={`text-sm mb-1 ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
-                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>Onboarding: {plan.onboarding}</div>
+                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>Once-off onboarding: {plan.onboarding}</div>
                   <ul className="space-y-2 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className={`text-sm flex items-start gap-2 ${plan.popular ? "text-indigo-100" : "text-gray-600"}`}>
@@ -92,15 +100,32 @@ export default function PricingPage() {
                 ))}
               </div>
 
+              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-6">
+                <div className="bg-indigo-600 px-6 py-4">
+                  <div className="flex justify-between items-center text-white text-sm font-semibold">
+                    <span>Company Size</span>
+                    <span>Monthly Fee</span>
+                  </div>
+                </div>
+                {outsourcingTiers.map((tier, i) => (
+                  <div key={tier.employees} className={`flex justify-between items-center px-6 py-4 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+                    <span className="text-gray-700 font-medium">{tier.employees}</span>
+                    <div className="text-right">
+                      <span className={`font-bold ${tier.price === "Custom" ? "text-indigo-600" : "text-gray-900"}`}>{tier.price}</span>
+                      <span className="text-gray-400 text-xs ml-1">{tier.note}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <div className="text-2xl font-bold mb-1">R75 <span className="text-base font-normal text-indigo-200">per employee/month</span></div>
-                  <div className="text-indigo-200 text-sm mb-3">Minimum R750/month</div>
-                  <p className="text-indigo-100 text-sm max-w-md">Ideal for businesses that want professional payroll management without the hassle of doing it themselves.</p>
+                  <div className="text-lg font-bold mb-1">Once-off Onboarding Fee: R15 000</div>
+                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform. For companies over 1 000 employees, contact us for a tailored quote.</p>
                 </div>
                 <div className="text-center shrink-0">
                   <div className="text-indigo-200 text-sm mb-3">Interested? Get in touch:</div>
-                  <a href="mailto:info@nexerapayroll.co.za" className="block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl hover:bg-indigo-50 transition-colors mb-2">
+                  <a href="mailto:info@nexerapayroll.co.za" className="block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl hover:bg-indigo-50 transition-colors">
                     info@nexerapayroll.co.za
                   </a>
                 </div>
