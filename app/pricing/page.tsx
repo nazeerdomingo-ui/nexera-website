@@ -79,7 +79,7 @@ export default function PricingPage() {
                   <div className={`text-sm mb-1 ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
                   <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>
                     {plan.trial ? plan.onboarding : (
-                      <>Once-off onboarding:<br /><span className={`font-semibold text-sm ${plan.popular ? "text-indigo-100" : "text-gray-700"}`}>{plan.onboarding}</span></>
+                      <>Once-off onboarding:<br />{plan.onboarding}</>
                     )}
                   </div>
                   <ul className="space-y-2 flex-1">
