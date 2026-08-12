@@ -11,6 +11,7 @@ const features = [
   { title: "Employee Self-Service", desc: "Employees view payslips, apply for leave, and update their details online — no admin needed.", icon: "👤" },
   { title: "Multi-Company", desc: "Manage multiple companies or entities from one login with fully separate data and reporting.", icon: "🏢" },
   { title: "Role-Based Access", desc: "Super Admin, HR Manager, Accountant, and Employee roles — each sees only what they need.", icon: "🔐" },
+  { title: "Employee Document Vault", desc: "Upload and store contracts, IDs, certificates, and HR documents securely against each employee's profile.", icon: "🗂️" },
   { title: "Multi Cost Centres", desc: "Allocate employees and payroll costs across multiple departments or cost centres for accurate reporting.", icon: "📊" },
   { title: "Payroll Management Outsourcing", desc: "Don't want to run payroll yourself? Let NexEra manage it for you — we handle everything end to end.", icon: "🤝" },
 ];
