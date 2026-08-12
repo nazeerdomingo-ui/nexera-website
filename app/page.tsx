@@ -69,17 +69,20 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Simple, transparent pricing</h2>
-            <p className="text-gray-500 mb-10">Plans starting from R599/month. No hidden fees.</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
+            <p className="text-gray-500 mb-10">Start free for 30 days. Paid plans from R599/month. No hidden fees.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-10">
               {[
+                { name: "Free Trial", price: "R0", employees: "Up to 10 employees", trial: true },
                 { name: "Starter", price: "R599", employees: "Up to 10 employees" },
                 { name: "Professional", price: "R799", employees: "Up to 50 employees", popular: true },
                 { name: "Business", price: "R1 599", employees: "Up to 200 employees" },
+                { name: "Enterprise", price: "Custom", employees: "200+ employees" },
               ].map((plan) => (
-                <div key={plan.name} className={`p-6 rounded-2xl border-2 ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white" : "border-gray-200 bg-white"}`}>
+                <div key={plan.name} className={`p-6 rounded-2xl border-2 ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white" : plan.trial ? "border-emerald-400 bg-emerald-50" : "border-gray-200 bg-white"}`}>
                   {plan.popular && <div className="text-xs font-semibold uppercase tracking-wide text-indigo-200 mb-2">Most Popular</div>}
+                  {plan.trial && <div className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">30 Days Free</div>}
                   <div className={`font-bold text-lg mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>{plan.name}</div>
-                  <div className={`text-3xl font-bold mb-1 ${plan.popular ? "text-white" : "text-indigo-600"}`}>{plan.price}<span className="text-sm font-normal">/mo</span></div>
+                  <div className={`text-3xl font-bold mb-1 ${plan.popular ? "text-white" : plan.trial ? "text-emerald-600" : "text-indigo-600"}`}>{plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal">/mo</span>}</div>
                   <div className={`text-sm ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
                 </div>
               ))}
