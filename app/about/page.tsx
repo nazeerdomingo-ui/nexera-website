@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div className="bg-indigo-600 rounded-2xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-2">Ready to get started?</h3>
               <p className="text-indigo-200 mb-6">Join South African businesses already running payroll on NexEra.</p>
-              <a href="https://app.nexerapayroll.co.za/login"
+              <a href="/contact"
                 className="bg-white text-indigo-600 hover:bg-indigo-50 font-semibold px-8 py-3 rounded-xl transition-colors inline-block">
                 Get Started
               </a>

@@ -34,7 +34,7 @@ export default function Home() {
               NexEra is a cloud-based payroll and people management platform built specifically for South African businesses. SARS compliant, secure, and easy to use.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://app.nexerapayroll.co.za/login"
+              <a href="/contact"
                 className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg">
                 Get Started
               </a>
@@ -95,7 +95,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto px-4 sm:px-6">
             <h2 className="text-3xl font-bold mb-4">Ready to simplify your payroll?</h2>
             <p className="text-indigo-200 mb-8">Join South African businesses already using NexEra to manage their people and payroll.</p>
-            <a href="https://app.nexerapayroll.co.za/login"
+            <a href="/contact"
               className="bg-white text-indigo-600 hover:bg-indigo-50 font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg inline-block">
               Get Started Today
             </a>

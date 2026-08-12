@@ -72,7 +72,7 @@ export default function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="https://app.nexerapayroll.co.za/login"
+                  <a href="/contact"
                     className={`mt-6 block text-center font-semibold py-2.5 rounded-xl transition-colors text-sm ${plan.popular ? "bg-white text-indigo-600 hover:bg-indigo-50" : "bg-indigo-600 text-white hover:bg-indigo-700"}`}>
                     Get Started
                   </a>
