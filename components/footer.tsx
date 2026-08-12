@@ -23,7 +23,7 @@ export default function Footer() {
           <div>
             <div className="text-white font-semibold text-sm mb-3">Contact</div>
             <div className="space-y-2 text-sm">
-              <p>support@nexerapayroll.co.za</p>
+              <p>info@nexerapayroll.co.za</p>
               <p>+27 69 857 4895</p>
               <p>Mon–Fri, 8:00am – 5:00pm</p>
             </div>

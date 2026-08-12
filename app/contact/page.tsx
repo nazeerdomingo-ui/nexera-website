@@ -20,7 +20,7 @@ export default function ContactPage() {
                 <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0 text-indigo-600 font-bold text-lg">@</div>
                 <div>
                   <div className="text-sm font-semibold text-gray-500 mb-0.5">Email</div>
-                  <div className="text-gray-900 font-medium">support@nexerapayroll.co.za</div>
+                  <div className="text-gray-900 font-medium">info@nexerapayroll.co.za</div>
                 </div>
               </div>
 
