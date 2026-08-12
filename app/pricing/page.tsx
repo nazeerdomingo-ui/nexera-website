@@ -3,6 +3,14 @@ import Footer from "@/components/footer";
 
 const plans = [
   {
+    name: "Free Trial",
+    price: "R0",
+    employees: "Up to 10 employees",
+    onboarding: "No onboarding fee",
+    trial: true,
+    features: ["Full access for 30 days", "Payroll processing", "Payslip generation", "Leave management", "UIF & PAYE calculations", "Email support"],
+  },
+  {
     name: "Starter",
     price: "R599",
     employees: "Up to 10 employees",
@@ -55,16 +63,17 @@ export default function PricingPage() {
 
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
               {plans.map((plan) => (
-                <div key={plan.name} className={`rounded-2xl p-6 border-2 flex flex-col ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white shadow-xl scale-105" : "border-gray-200 bg-white text-gray-900"}`}>
+                <div key={plan.name} className={`rounded-2xl p-6 border-2 flex flex-col ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white shadow-xl scale-105" : plan.trial ? "border-emerald-400 bg-emerald-50 text-gray-900" : "border-gray-200 bg-white text-gray-900"}`}>
                   {plan.popular && <div className="text-xs font-semibold uppercase tracking-wide text-indigo-200 mb-2">Most Popular</div>}
+                  {plan.trial && <div className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">30 Days Free</div>}
                   <div className="font-bold text-lg mb-1">{plan.name}</div>
-                  <div className={`text-3xl font-bold mb-1 ${plan.popular ? "text-white" : "text-indigo-600"}`}>
+                  <div className={`text-3xl font-bold mb-1 ${plan.popular ? "text-white" : plan.trial ? "text-emerald-600" : "text-indigo-600"}`}>
                     {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal">/mo</span>}
                   </div>
                   <div className={`text-sm mb-1 ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
-                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>Once-off onboarding: {plan.onboarding}</div>
+                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>{plan.trial ? plan.onboarding : `Once-off onboarding: ${plan.onboarding}`}</div>
                   <ul className="space-y-2 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className={`text-sm flex items-start gap-2 ${plan.popular ? "text-indigo-100" : "text-gray-600"}`}>
@@ -73,8 +82,8 @@ export default function PricingPage() {
                     ))}
                   </ul>
                   <a href="/contact"
-                    className={`mt-6 block text-center font-semibold py-2.5 rounded-xl transition-colors text-sm ${plan.popular ? "bg-white text-indigo-600 hover:bg-indigo-50" : "bg-indigo-600 text-white hover:bg-indigo-700"}`}>
-                    Get Started
+                    className={`mt-6 block text-center font-semibold py-2.5 rounded-xl transition-colors text-sm ${plan.popular ? "bg-white text-indigo-600 hover:bg-indigo-50" : plan.trial ? "bg-emerald-500 text-white hover:bg-emerald-600" : "bg-indigo-600 text-white hover:bg-indigo-700"}`}>
+                    {plan.trial ? "Start Free Trial" : "Get Started"}
                   </a>
                 </div>
               ))}
