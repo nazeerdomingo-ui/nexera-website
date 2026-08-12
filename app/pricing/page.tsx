@@ -72,14 +72,39 @@ export default function PricingPage() {
               ))}
             </div>
 
-            <div className="mt-12 bg-white rounded-2xl border border-gray-200 p-8 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Outsourced Payroll</h3>
-              <p className="text-gray-500 mb-4">Let NexEra handle your payroll completely. We process, calculate, and submit on your behalf.</p>
-              <div className="text-2xl font-bold text-indigo-600 mb-1">R75 <span className="text-base font-normal text-gray-500">per employee/month</span></div>
-              <div className="text-sm text-gray-400 mb-6">Minimum R750/month</div>
-              <a href="/contact" className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors inline-block">
-                Contact Us
-              </a>
+            {/* Payroll Management Outsourcing */}
+            <div className="mt-16">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Payroll Management Outsourcing</h2>
+                <p className="text-gray-500 max-w-2xl mx-auto">Don&apos;t want to run payroll yourself? Let NexEra manage your entire payroll process — from calculations and payslips to UIF submissions and IRP5 certificates. We handle it all so you can focus on running your business.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                {[
+                  { title: "We Calculate", desc: "PAYE, UIF, SDL, and all deductions calculated accurately every month." },
+                  { title: "We Submit", desc: "EMP201 returns, UIF declarations, and IRP5 certificates handled on your behalf." },
+                  { title: "We Report", desc: "Payslips distributed and management reports delivered — nothing for you to do." },
+                ].map((item) => (
+                  <div key={item.title} className="bg-indigo-50 rounded-2xl p-6 text-center">
+                    <h3 className="font-bold text-indigo-700 mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <div className="text-2xl font-bold mb-1">R75 <span className="text-base font-normal text-indigo-200">per employee/month</span></div>
+                  <div className="text-indigo-200 text-sm mb-3">Minimum R750/month</div>
+                  <p className="text-indigo-100 text-sm max-w-md">Ideal for businesses that want professional payroll management without the hassle of doing it themselves.</p>
+                </div>
+                <div className="text-center shrink-0">
+                  <div className="text-indigo-200 text-sm mb-3">Interested? Get in touch:</div>
+                  <a href="mailto:info@nexerapayroll.co.za" className="block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl hover:bg-indigo-50 transition-colors mb-2">
+                    info@nexerapayroll.co.za
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
