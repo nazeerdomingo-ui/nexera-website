@@ -3,12 +3,15 @@ import Footer from "@/components/footer";
 import Link from "next/link";
 
 const features = [
-  { title: "SARS Compliant", desc: "Fully compliant with South African tax laws. PAYE, UIF, SDL calculated automatically.", icon: "🏛️" },
-  { title: "Cloud-Based", desc: "Access your payroll from anywhere, anytime. No software to install or maintain.", icon: "☁️" },
-  { title: "Multi-Company", desc: "Manage multiple companies from one platform with separate data and reporting.", icon: "🏢" },
-  { title: "Employee Self-Service", desc: "Employees can view payslips, apply for leave, and update their details online.", icon: "👤" },
-  { title: "Leave Management", desc: "Track annual, sick, and family responsibility leave with automated balance calculations.", icon: "📅" },
-  { title: "Secure & Reliable", desc: "Bank-level security with two-factor authentication and automatic backups.", icon: "🔒" },
+  { title: "PAYE, UIF & SDL", desc: "Automatic tax calculations, EMP201 returns, and IRP5/IT3(a) certificates generated and ready for eFiling.", icon: "🏛️" },
+  { title: "UIF Submissions", desc: "Generate UIF declaration files (UI-19) in the correct format for Department of Labour submission.", icon: "📋" },
+  { title: "Banking Payment Files", desc: "Export bank-ready payment files to pay employees directly — compatible with major South African banks.", icon: "🏦" },
+  { title: "Contract Alerts", desc: "Automated notifications before fixed-term contracts expire so you never miss a renewal or end date.", icon: "📢" },
+  { title: "Leave Management", desc: "Annual, sick, and family responsibility leave — tracked, approved, and balanced automatically.", icon: "📅" },
+  { title: "Employee Self-Service", desc: "Employees view payslips, apply for leave, and update their details online — no admin needed.", icon: "👤" },
+  { title: "Multi-Company", desc: "Manage multiple companies or entities from one login with fully separate data and reporting.", icon: "🏢" },
+  { title: "Role-Based Access", desc: "Super Admin, HR Manager, Accountant, and Employee roles — each sees only what they need.", icon: "🔐" },
+  { title: "Payroll Outsourcing", desc: "Don't want to run payroll yourself? Let NexEra do it for you — we handle everything end to end.", icon: "🤝" },
 ];
 
 export default function Home() {
@@ -46,8 +49,8 @@ export default function Home() {
         <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-14">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Everything you need to run payroll</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">From onboarding to payslips, NexEra handles it all so you can focus on running your business.</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Built for South African payroll</h2>
+              <p className="text-gray-500 max-w-xl mx-auto">From UIF submissions to banking files, IRP5s to contract alerts — NexEra covers every part of your payroll process.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((f) => (
