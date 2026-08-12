@@ -63,6 +63,10 @@ export default function PricingPage() {
 
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Subscription Plans</h2>
+              <p className="text-gray-500 max-w-2xl mx-auto">Choose the plan that fits your business. All plans include full access to NexEra&apos;s payroll and people management features.</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
               {plans.map((plan) => (
                 <div key={plan.name} className={`rounded-2xl p-6 border-2 flex flex-col ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white shadow-xl scale-105" : plan.trial ? "border-emerald-400 bg-emerald-50 text-gray-900" : "border-gray-200 bg-white text-gray-900"}`}>
@@ -73,7 +77,11 @@ export default function PricingPage() {
                     {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal">/mo</span>}
                   </div>
                   <div className={`text-sm mb-1 ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
-                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>{plan.trial ? plan.onboarding : `Once-off onboarding: ${plan.onboarding}`}</div>
+                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>
+                    {plan.trial ? plan.onboarding : (
+                      <>Once-off onboarding:<br /><span className={`font-semibold text-sm ${plan.popular ? "text-indigo-100" : "text-gray-700"}`}>{plan.onboarding}</span></>
+                    )}
+                  </div>
                   <ul className="space-y-2 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className={`text-sm flex items-start gap-2 ${plan.popular ? "text-indigo-100" : "text-gray-600"}`}>
