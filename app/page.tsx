@@ -15,6 +15,7 @@ const features = [
   { title: "Employee Document Vault", desc: "Upload and store contracts, IDs, certificates, and HR documents securely against each employee's profile.", icon: "🗂️" },
   { title: "Multi Cost Centres", desc: "Allocate employees and payroll costs across multiple departments or cost centres for accurate reporting.", icon: "📊" },
   { title: "Payroll Management Outsourcing", desc: "Don't want to run payroll yourself? Let NexEra manage it for you — we handle everything end to end.", icon: "🤝" },
+  { title: "Employee Self-Service Portal (SSP)", desc: "Give employees their own secure portal to view payslips, apply for leave, and download tax documents. Available as an add-on for R999/month on any plan.", icon: "🖥️", addon: true },
 ];
 
 export default function Home() {
@@ -33,8 +34,11 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((f) => (
-                <div key={f.title} className="p-6 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all">
-                  <div className="text-3xl mb-3">{f.icon}</div>
+                <div key={f.title} className={`p-6 rounded-2xl border transition-all ${(f as any).addon ? "border-indigo-200 bg-indigo-50 hover:border-indigo-400 hover:shadow-md" : "border-gray-100 hover:border-indigo-200 hover:shadow-md"}`}>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <div className="text-3xl">{f.icon}</div>
+                    {(f as any).addon && <span className="text-xs font-semibold bg-indigo-600 text-white px-2 py-0.5 rounded-full whitespace-nowrap">Add-on</span>}
+                  </div>
                   <h3 className="font-semibold text-gray-900 mb-2">{f.title}</h3>
                   <p className="text-sm text-gray-500">{f.desc}</p>
                 </div>
