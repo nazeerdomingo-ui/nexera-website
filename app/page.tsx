@@ -1,6 +1,7 @@
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import Link from "next/link";
+import HeroCarousel from "@/components/hero-carousel";
 
 const features = [
   { title: "PAYE, UIF & SDL", desc: "Automatic tax calculations, EMP201 returns, and IRP5/IT3(a) certificates generated and ready for eFiling.", icon: "🏛️" },
@@ -21,31 +22,7 @@ export default function Home() {
     <>
       <Nav />
       <main>
-        {/* Hero */}
-        <section className="pt-32 pb-20 bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-            <div className="inline-flex items-center gap-2 bg-indigo-800/50 border border-indigo-700 rounded-full px-4 py-1.5 text-sm text-indigo-300 mb-6">
-              🇿🇦 Built for South African businesses
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Payroll made simple.<br />
-              <span className="text-indigo-400">Compliance made easy.</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-indigo-200 max-w-2xl mx-auto mb-10">
-              NexEra is a cloud-based payroll and people management platform built specifically for South African businesses. SARS compliant, secure, and easy to use.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact"
-                className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg">
-                Get Started
-              </a>
-              <Link href="/pricing"
-                className="border border-indigo-500 hover:bg-indigo-800 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg">
-                View Pricing
-              </Link>
-            </div>
-          </div>
-        </section>
+        <HeroCarousel />
 
         {/* Features */}
         <section className="py-20 bg-white">
