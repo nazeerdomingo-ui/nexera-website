@@ -126,13 +126,14 @@ export default function HeroCarousel() {
                   {slide.caption}
                 </p>
               </div>
-              <div className="w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl border border-indigo-700/40 flex-1 min-h-0">
+              <div className="w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl border border-indigo-700/40 flex-1 min-h-0 relative">
                 <Image
                   src={slide.src}
                   alt={slide.label}
                   width={1456}
                   height={816}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full object-cover object-top absolute top-0 left-0"
+                  style={{ height: "115%" }}
                   priority={current === 1}
                 />
               </div>
