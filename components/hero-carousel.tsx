@@ -134,9 +134,9 @@ export default function HeroCarousel() {
                   height={816}
                   className="w-full object-cover absolute left-0"
                   style={{
-                    height: "130%",
+                    height: slide.src === "/screenshots/portal.png" ? "130%" : "115%",
                     top: slide.src === "/screenshots/portal.png" ? "-20%" : "0",
-                    objectPosition: "top",
+                    objectPosition: "top center",
                   }}
                   priority={current === 1}
                 />
