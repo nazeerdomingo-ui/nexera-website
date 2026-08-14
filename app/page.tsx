@@ -9,13 +9,12 @@ const features = [
   { title: "Banking Payment Files", desc: "Export bank-ready payment files to pay employees directly — compatible with major South African banks.", icon: "🏦" },
   { title: "Contract Alerts", desc: "Automated notifications before fixed-term contracts expire so you never miss a renewal or end date.", icon: "📢" },
   { title: "Leave Management", desc: "Annual, sick, and family responsibility leave — tracked, approved, and balanced automatically.", icon: "📅" },
-  { title: "Employee Self-Service", desc: "Employees view payslips, apply for leave, and update their details online — no admin needed.", icon: "👤" },
   { title: "Multi-Company", desc: "Manage multiple companies or entities from one login with fully separate data and reporting.", icon: "🏢" },
   { title: "Role-Based Access", desc: "Super Admin, HR Manager, Accountant, and Employee roles — each sees only what they need.", icon: "🔐" },
   { title: "Employee Document Vault", desc: "Upload and store contracts, IDs, certificates, and HR documents securely against each employee's profile.", icon: "🗂️" },
   { title: "Multi Cost Centres", desc: "Allocate employees and payroll costs across multiple departments or cost centres for accurate reporting.", icon: "📊" },
   { title: "Payroll Management Outsourcing", desc: "Don't want to run payroll yourself? Let NexEra manage it for you — we handle everything end to end.", icon: "🤝" },
-  { title: "Employee Self-Service Portal (SSP)", desc: "Give employees their own secure portal to view payslips, apply for leave, and download tax documents. Available as an add-on for R999/month on any plan.", icon: "🖥️", addon: true },
+  { title: "Employee Self-Service Portal (SSP)", desc: "Give employees their own secure portal to view payslips, apply for leave, and download tax documents.", icon: "🖥️", addon: true },
 ];
 
 export default function Home() {
