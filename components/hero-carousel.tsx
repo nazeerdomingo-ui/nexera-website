@@ -72,67 +72,70 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white overflow-hidden"
+      className="relative bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white flex flex-col"
+      style={{ height: "100svh" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Slide content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {slide.type === "text" ? (
-          <div className="pt-32 pb-20 text-center">
-            <div className="inline-flex items-center gap-2 bg-indigo-800/50 border border-indigo-700 rounded-full px-4 py-1.5 text-sm text-indigo-300 mb-6">
-              🇿🇦 Built for South African businesses
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Payroll made simple.<br />
-              <span className="text-indigo-400">Compliance made easy.</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-indigo-200 max-w-2xl mx-auto mb-10">
-              NexEra is a cloud-based payroll and people management platform built specifically for South African businesses. SARS compliant, secure, and easy to use.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg"
-              >
-                Get Started
-              </a>
-              <Link
-                href="/pricing"
-                className="border border-indigo-500 hover:bg-indigo-800 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg"
-              >
-                View Pricing
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="pt-16 pb-6 flex flex-col items-center">
-            {/* Label + caption */}
-            <div className="text-center mb-6">
-              <span className="inline-block bg-indigo-700/60 border border-indigo-600 rounded-full px-4 py-1 text-sm text-indigo-200 mb-3">
-                {slide.label}
-              </span>
-              <p className="text-indigo-200 text-base sm:text-lg max-w-2xl mx-auto">
-                {slide.caption}
+      {/* Slide content — fills available space */}
+      <div className="flex-1 flex flex-col justify-center overflow-hidden">
+        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center h-full justify-center">
+          {slide.type === "text" ? (
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 bg-indigo-800/50 border border-indigo-700 rounded-full px-4 py-1.5 text-sm text-indigo-300 mb-6">
+                🇿🇦 Built for South African businesses
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Payroll made simple.<br />
+                <span className="text-indigo-400">Compliance made easy.</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-indigo-200 max-w-2xl mx-auto mb-10">
+                NexEra is a cloud-based payroll and people management platform built specifically for South African businesses. SARS compliant, secure, and easy to use.
               </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/contact"
+                  className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg"
+                >
+                  Get Started
+                </a>
+                <Link
+                  href="/pricing"
+                  className="border border-indigo-500 hover:bg-indigo-800 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg"
+                >
+                  View Pricing
+                </Link>
+              </div>
             </div>
-            {/* Screenshot */}
-            <div className="w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl border border-indigo-700/40">
-              <Image
-                src={slide.src}
-                alt={slide.label}
-                width={1456}
-                height={816}
-                className="w-full h-auto object-cover"
-                priority={current === 1}
-              />
+          ) : (
+            <div className="flex flex-col items-center w-full" style={{ maxHeight: "calc(100svh - 80px)" }}>
+              {/* Label + caption */}
+              <div className="text-center mb-4 flex-shrink-0">
+                <span className="inline-block bg-indigo-700/60 border border-indigo-600 rounded-full px-4 py-1 text-sm text-indigo-200 mb-2">
+                  {slide.label}
+                </span>
+                <p className="text-indigo-200 text-sm sm:text-base max-w-2xl mx-auto">
+                  {slide.caption}
+                </p>
+              </div>
+              {/* Screenshot — constrained to remaining height */}
+              <div className="w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl border border-indigo-700/40 flex-1 min-h-0">
+                <Image
+                  src={slide.src}
+                  alt={slide.label}
+                  width={1456}
+                  height={816}
+                  className="w-full h-full object-cover object-top"
+                  priority={current === 1}
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 pb-6 pt-4">
+      {/* Dot indicators — always visible at bottom */}
+      <div className="flex justify-center gap-2 py-4 flex-shrink-0">
         {slides.map((_, i) => (
           <button
             key={i}
