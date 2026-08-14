@@ -68,6 +68,13 @@ export default function HeroCarousel() {
     return () => clearInterval(t);
   }, [paused]);
 
+  // Resume auto-advance 6s after a dot click
+  const goTo = (i: number) => {
+    setCurrent(i);
+    setPaused(true);
+    setTimeout(() => setPaused(false), 6000);
+  };
+
   const slide = slides[current];
 
   return (
@@ -139,7 +146,7 @@ export default function HeroCarousel() {
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => { setCurrent(i); setPaused(true); }}
+            onClick={() => goTo(i)}
             className={`rounded-full transition-all duration-300 ${
               i === current
                 ? "w-6 h-2 bg-indigo-400"
