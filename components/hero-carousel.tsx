@@ -132,7 +132,7 @@ export default function HeroCarousel() {
                   alt={slide.label}
                   width={1456}
                   height={816}
-                  className="w-full object-cover object-top absolute top-0 left-0"
+                  className={`w-full object-cover absolute left-0 ${slide.src === "/screenshots/portal.png" ? "object-bottom bottom-0" : "object-top top-0"}`}
                   style={{ height: "115%" }}
                   priority={current === 1}
                 />
