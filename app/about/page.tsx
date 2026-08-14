@@ -36,7 +36,7 @@ export default function AboutPage() {
                   { title: "SARS Compliant", desc: "Always up to date with the latest tax tables and legislative requirements." },
                   { title: "Cloud-Based", desc: "No software to install. Access your payroll securely from any device." },
                   { title: "Dedicated Support", desc: "Real people, real answers. Reach us by email or phone during business hours." },
-                  { title: "Affordable", desc: "Plans starting from R599/month — fair pricing for businesses of all sizes." },
+                  { title: "Affordable", desc: "Plans starting from R999/month — fair pricing for businesses of all sizes." },
                 ].map((item) => (
                   <div key={item.title} className="p-5 rounded-xl border border-gray-100 bg-gray-50">
                     <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>

@@ -12,14 +12,14 @@ const plans = [
   },
   {
     name: "Starter",
-    price: "R599",
+    price: "R999",
     employees: "Up to 10 employees",
     onboarding: "R5 000",
     features: ["Payroll processing", "Payslip generation", "Leave management", "Employee self-service portal", "UIF & PAYE calculations", "Email support"],
   },
   {
     name: "Professional",
-    price: "R799",
+    price: "R1 599",
     employees: "Up to 50 employees",
     onboarding: "R10 000",
     popular: true,
@@ -27,7 +27,7 @@ const plans = [
   },
   {
     name: "Business",
-    price: "R1 599",
+    price: "R2 599",
     employees: "Up to 200 employees",
     onboarding: "R15 000",
     features: ["Everything in Professional", "Advanced reporting", "Custom integrations", "Dedicated account manager", "Phone support", "SLA guarantee"],
@@ -42,10 +42,10 @@ const plans = [
 ];
 
 const outsourcingTiers = [
-  { employees: "1 – 10 employees", price: "R750", note: "per month" },
-  { employees: "11 – 25 employees", price: "R1 500", note: "per month" },
-  { employees: "26 – 50 employees", price: "R2 500", note: "per month" },
-  { employees: "51 – 100 employees", price: "R4 500", note: "per month" },
+  { employees: "1 – 10 employees", price: "R5 999", note: "per month" },
+  { employees: "11 – 25 employees", price: "R8 999", note: "per month" },
+  { employees: "26 – 50 employees", price: "R12 999", note: "per month" },
+  { employees: "51 – 100 employees", price: "R15 999", note: "per month" },
   { employees: "101 – 1 000+ employees", price: "Custom", note: "contact us for a quote" },
 ];
 
