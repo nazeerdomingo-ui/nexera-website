@@ -40,7 +40,6 @@ const plans = [
     features: ["Everything in Business", "Custom development", "On-site training", "White-label options", "API access", "24/7 support"],
   },
 ];
-
 const outsourcingTiers = [
   { employees: "1 – 10 employees", price: "R5 999", note: "per month" },
   { employees: "11 – 25 employees", price: "R8 999", note: "per month" },
@@ -137,8 +136,8 @@ export default function PricingPage() {
 
               <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <div className="text-lg font-bold mb-1">Once-off Onboarding Fee: R15 000</div>
-                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform. For companies over 1 000 employees, contact us for a tailored quote.</p>
+                  <div className="text-lg font-bold mb-1">Once-off Onboarding Fee applies</div>
+                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform. Contact us for your onboarding quote.</p>
                 </div>
                 <div className="text-center shrink-0">
                   <div className="text-indigo-200 text-sm mb-3">Interested? Get in touch:</div>
