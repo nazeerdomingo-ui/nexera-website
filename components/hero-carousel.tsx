@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -56,23 +56,27 @@ const slides = [
   },
 ];
 
+const INTERVAL = 4500;
+
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % slides.length);
+    }, INTERVAL);
+  };
 
   useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length);
-    }, 4500);
-    return () => clearInterval(t);
-  }, [paused]);
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
 
-  // Resume auto-advance 6s after a dot click
   const goTo = (i: number) => {
     setCurrent(i);
-    setPaused(true);
-    setTimeout(() => setPaused(false), 6000);
+    startTimer(); // reset the timer so it counts from now
   };
 
   const slide = slides[current];
@@ -81,11 +85,9 @@ export default function HeroCarousel() {
     <section
       className="relative bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white flex flex-col"
       style={{ height: "100svh" }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
-      {/* Slide content — fills available space */}
-      <div className="flex-1 flex flex-col justify-center overflow-hidden">
+      {/* Slide content */}
+      <div className="flex-1 flex flex-col justify-center overflow-hidden pt-20">
         <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center h-full justify-center">
           {slide.type === "text" ? (
             <div className="text-center">
@@ -115,9 +117,8 @@ export default function HeroCarousel() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center w-full" style={{ maxHeight: "calc(100svh - 80px)" }}>
-              {/* Label + caption */}
-              <div className="text-center mb-4 flex-shrink-0">
+            <div className="flex flex-col items-center w-full h-full justify-center gap-4">
+              <div className="text-center mt-2">
                 <span className="inline-block bg-indigo-700/60 border border-indigo-600 rounded-full px-4 py-1 text-sm text-indigo-200 mb-2">
                   {slide.label}
                 </span>
@@ -125,7 +126,6 @@ export default function HeroCarousel() {
                   {slide.caption}
                 </p>
               </div>
-              {/* Screenshot — constrained to remaining height */}
               <div className="w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl border border-indigo-700/40 flex-1 min-h-0">
                 <Image
                   src={slide.src}
@@ -141,7 +141,7 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Dot indicators — always visible at bottom */}
+      {/* Dots */}
       <div className="flex justify-center gap-2 py-4 flex-shrink-0">
         {slides.map((_, i) => (
           <button
