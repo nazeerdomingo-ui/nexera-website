@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="mb-3">
-              <Image src="/nexera-logo-white.svg" alt="NexEra Logo" width={160} height={55} className="object-contain" />
+              <Image src="/nexera-logo-white.svg" alt="NexEra Logo" width={240} height={80} className="object-contain" />
             </div>
             <p className="text-sm">Payroll and People Management Systems for South African businesses.</p>
           </div>
