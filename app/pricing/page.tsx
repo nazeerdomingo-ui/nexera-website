@@ -15,7 +15,7 @@ const plans = [
     price: "R999",
     employees: "Up to 10 employees",
     onboarding: "R5 000",
-    features: ["Payroll processing", "Payslip generation", "Leave management", "Employee self-service portal", "UIF & PAYE calculations", "Email support"],
+    features: ["Payroll processing", "Payslip generation", "Leave management", "UIF & PAYE calculations", "Email support"],
   },
   {
     name: "Professional",
@@ -94,6 +94,33 @@ export default function PricingPage() {
                   </a>
                 </div>
               ))}
+            </div>
+
+            {/* Add-ons */}
+            <div className="mt-14">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Add-ons</h2>
+                <p className="text-gray-500 max-w-2xl mx-auto">Extend any plan with optional features. Add-ons are billed monthly alongside your subscription.</p>
+              </div>
+              <div className="max-w-xl mx-auto bg-white border-2 border-indigo-100 rounded-2xl p-6 flex items-start gap-5 shadow-sm">
+                <div className="bg-indigo-50 rounded-xl p-3 shrink-0">
+                  <svg className="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                    <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="font-bold text-gray-900 text-lg">Employee Self-Service Portal (SSP)</div>
+                    <div className="text-indigo-600 font-bold text-xl whitespace-nowrap">R999<span className="text-sm font-normal text-gray-400">/mo</span></div>
+                  </div>
+                  <p className="text-gray-500 text-sm mt-1.5">Give your employees their own secure portal to view payslips, apply for leave, update personal details, and download tax documents — available on any plan.</p>
+                  <ul className="mt-3 space-y-1">
+                    {["Employee payslip access", "Leave application & approval", "Personal details update", "IRP5 & tax document downloads", "Mobile-friendly interface"].map((f) => (
+                      <li key={f} className="text-sm text-gray-600 flex items-center gap-2"><span className="text-indigo-500">✓</span>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
 
             {/* Payroll Management Outsourcing */}
