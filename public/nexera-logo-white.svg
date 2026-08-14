@@ -1,0 +1,8 @@
+<svg viewBox="0 0 235 68" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="25" cy="30" r="21" fill="none" stroke="#818CF8" stroke-width="2.5" stroke-dasharray="118 14" stroke-linecap="round"/>
+  <rect x="16" y="18" width="4" height="24" fill="#A5B4FC"/>
+  <polygon points="20,18 23,18 30,42 27,42" fill="#818CF8"/>
+  <rect x="30" y="18" width="4" height="24" fill="#A5B4FC"/>
+  <text x="60" y="28" dominant-baseline="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="23" fill="#FFFFFF"><tspan font-weight="800">Nex</tspan><tspan font-weight="200" fill="#818CF8">Era</tspan></text>
+  <text x="61" y="50" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="400" fill="#A5B4FC" letter-spacing="0.02em">Payroll and People Management Systems</text>
+</svg>
