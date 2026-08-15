@@ -132,12 +132,20 @@ export default function HeroCarousel() {
                   alt={slide.label}
                   width={1456}
                   height={816}
-                  className="w-full object-cover absolute left-0"
+                  className="w-full absolute left-0 hidden sm:block object-cover"
                   style={{
                     height: slide.src === "/screenshots/portal.png" ? "130%" : "115%",
                     top: slide.src === "/screenshots/portal.png" ? "-20%" : "0",
                     objectPosition: "top center",
                   }}
+                  priority={current === 1}
+                />
+                <Image
+                  src={slide.src}
+                  alt={slide.label}
+                  width={1456}
+                  height={816}
+                  className="w-full block sm:hidden object-contain object-top"
                   priority={current === 1}
                 />
               </div>
