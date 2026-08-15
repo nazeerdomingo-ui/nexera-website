@@ -127,12 +127,22 @@ export default function HeroCarousel() {
                 </p>
               </div>
               <div className="w-full max-w-5xl flex-1 min-h-0 flex items-center justify-center">
+                {/* Desktop / tablet: the full screen */}
                 <Image
                   src={slide.src}
                   alt={slide.label}
                   width={1920}
                   height={slide.src === "/screenshots/portal.png" ? 870 : 933}
-                  className="max-w-full max-h-full w-auto h-auto object-contain rounded-xl shadow-2xl border border-indigo-700/40"
+                  className="hidden sm:block max-w-full max-h-full w-auto h-auto object-contain rounded-xl shadow-2xl border border-indigo-700/40"
+                  priority={current === 1}
+                />
+                {/* Mobile: content-focused 4:3 crop so the UI stays legible */}
+                <Image
+                  src={slide.src.replace(".png", "-mobile.png")}
+                  alt={slide.label}
+                  width={1200}
+                  height={900}
+                  className="sm:hidden max-w-full max-h-full w-auto h-auto object-contain rounded-xl shadow-2xl border border-indigo-700/40"
                   priority={current === 1}
                 />
               </div>
