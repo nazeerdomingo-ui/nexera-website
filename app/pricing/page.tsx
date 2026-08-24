@@ -6,7 +6,7 @@ const plans = [
     name: "Free Trial",
     price: "R0",
     employees: "Up to 10 employees",
-    onboarding: "No onboarding fee",
+    annualFee: "No annual service fee",
     trial: true,
     features: ["Full access for 30 days", "Payroll processing", "Payslip generation", "Leave management", "UIF & PAYE calculations", "Email support"],
   },
@@ -14,14 +14,14 @@ const plans = [
     name: "Starter",
     price: "R999",
     employees: "Up to 10 employees",
-    onboarding: "R5 000",
+    annualFee: "R5 000",
     features: ["Payroll processing", "Payslip generation", "Leave management", "UIF & PAYE calculations", "Email support"],
   },
   {
     name: "Professional",
     price: "R1 599",
     employees: "Up to 50 employees",
-    onboarding: "R10 000",
+    annualFee: "R10 000",
     popular: true,
     features: ["Everything in Starter", "Multi-user access", "Role-based permissions", "Audit trail", "Reports & analytics", "Priority support"],
   },
@@ -29,14 +29,14 @@ const plans = [
     name: "Business",
     price: "R2 599",
     employees: "Up to 200 employees",
-    onboarding: "R15 000",
+    annualFee: "R15 000",
     features: ["Everything in Professional", "Advanced reporting", "Custom integrations", "Dedicated account manager", "Phone support", "SLA guarantee"],
   },
   {
     name: "Enterprise",
     price: "Custom",
     employees: "200+ employees",
-    onboarding: "R20 000+",
+    annualFee: "R20 000+",
     features: ["Everything in Business", "Custom development", "On-site training", "White-label options", "API access", "24/7 support"],
   },
 ];
@@ -56,7 +56,7 @@ export default function PricingPage() {
         <section className="py-16 bg-gradient-to-br from-indigo-950 to-slate-900 text-white text-center">
           <div className="max-w-2xl mx-auto px-4 sm:px-6">
             <h1 className="text-4xl font-bold mb-4">Simple, transparent pricing</h1>
-            <p className="text-indigo-200">No hidden fees. Cancel anytime. All plans include a once-off onboarding fee.</p>
+            <p className="text-indigo-200">No hidden fees. Cancel anytime. All plans include an annual service fee.</p>
           </div>
         </section>
 
@@ -77,8 +77,8 @@ export default function PricingPage() {
                   </div>
                   <div className={`text-sm mb-1 ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
                   <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>
-                    {plan.trial ? plan.onboarding : (
-                      <>Once-off onboarding:<br />{plan.onboarding}</>
+                    {plan.trial ? plan.annualFee : (
+                      <>Annual service fee:<br />{plan.annualFee}</>
                     )}
                   </div>
                   <ul className="space-y-2 flex-1">
@@ -163,8 +163,8 @@ export default function PricingPage() {
 
               <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <div className="text-lg font-bold mb-1">Once-off Onboarding Fee applies</div>
-                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform. Contact us for your onboarding quote.</p>
+                  <div className="text-lg font-bold mb-1">Annual Service Fee applies</div>
+                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and ongoing onboarding of your employees onto the NexEra platform. Contact us for your quote.</p>
                 </div>
                 <div className="text-center shrink-0">
                   <div className="text-indigo-200 text-sm mb-3">Interested? Get in touch:</div>
