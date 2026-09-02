@@ -41,11 +41,11 @@ const plans = [
   },
 ];
 const outsourcingTiers = [
-  { employees: "1 – 10 employees", price: "R5 999", note: "per month" },
-  { employees: "11 – 25 employees", price: "R8 999", note: "per month" },
-  { employees: "26 – 50 employees", price: "R12 999", note: "per month" },
-  { employees: "51 – 100 employees", price: "R15 999", note: "per month" },
-  { employees: "101 – 1 000+ employees", price: "Custom", note: "contact us for a quote" },
+  { employees: "1 – 10 employees", price: "R5 999", note: "per month", setupFee: "R4 999" },
+  { employees: "11 – 25 employees", price: "R8 999", note: "per month", setupFee: "R7 999" },
+  { employees: "26 – 50 employees", price: "R12 999", note: "per month", setupFee: "R11 999" },
+  { employees: "51 – 100 employees", price: "R15 999", note: "per month", setupFee: "R15 999" },
+  { employees: "101 – 1 000+ employees", price: "Custom", note: "contact us for a quote", setupFee: "Custom" },
 ];
 
 export default function PricingPage() {
@@ -145,17 +145,21 @@ export default function PricingPage() {
 
               <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-6">
                 <div className="bg-indigo-600 px-6 py-4">
-                  <div className="flex justify-between items-center text-white text-sm font-semibold">
+                  <div className="grid grid-cols-3 items-center text-white text-sm font-semibold">
                     <span>Company Size</span>
-                    <span>Monthly Fee</span>
+                    <span className="text-right">Monthly Fee</span>
+                    <span className="text-right">Setup Fee</span>
                   </div>
                 </div>
                 {outsourcingTiers.map((tier, i) => (
-                  <div key={tier.employees} className={`flex justify-between items-center px-6 py-4 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+                  <div key={tier.employees} className={`grid grid-cols-3 items-center px-6 py-4 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
                     <span className="text-gray-700 font-medium">{tier.employees}</span>
                     <div className="text-right">
                       <span className={`font-bold ${tier.price === "Custom" ? "text-indigo-600" : "text-gray-900"}`}>{tier.price}</span>
                       <span className="text-gray-400 text-xs ml-1">{tier.note}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className={`font-bold ${tier.setupFee === "Custom" ? "text-indigo-600" : "text-gray-900"}`}>{tier.setupFee}</span>
                     </div>
                   </div>
                 ))}
@@ -163,8 +167,8 @@ export default function PricingPage() {
 
               <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <div className="text-lg font-bold mb-1">Annual Service Fee applies</div>
-                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and ongoing onboarding of your employees onto the NexEra platform. Contact us for your quote.</p>
+                  <div className="text-lg font-bold mb-1">A once-off setup fee applies</div>
+                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform — see pricing by company size above. Custom quotes for 101+ employees.</p>
                 </div>
                 <div className="text-center shrink-0">
                   <div className="text-indigo-200 text-sm mb-3">Interested? Get in touch:</div>
