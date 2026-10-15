@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Rings } from "@/components/brand";
 
 const slides = [
   { type: "text" as const },
@@ -83,46 +84,54 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white flex flex-col"
+      className="relative overflow-hidden bg-ink text-white flex flex-col"
       style={{ height: "100svh" }}
     >
+      {/* Backdrop: grid texture, amethyst glow and the card's rings */}
+      <div className="absolute inset-0 bg-grid" />
+      <div className="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 w-[820px] max-w-[120vw] h-[520px] rounded-full bg-amethyst/35 blur-[140px] animate-glow" />
+      <div className="absolute -left-40 top-24 w-[420px] h-[420px] rounded-full bg-lilac/10 blur-[120px]" />
+      <Rings className="w-[640px] -right-56 -bottom-72 opacity-90" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-ink" />
+
       {/* Slide content */}
-      <div className="flex-1 flex flex-col justify-center overflow-hidden pt-20">
+      <div className="relative flex-1 flex flex-col justify-center overflow-hidden pt-20">
         <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 flex flex-col items-center h-full justify-center">
           {slide.type === "text" ? (
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 bg-indigo-800/50 border border-indigo-700 rounded-full px-4 py-1.5 text-sm text-indigo-300 mb-6">
+            <div key="text" className="text-center animate-rise">
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-haze mb-8 border border-white/10 bg-white/[0.04] backdrop-blur">
+                <span className="w-1.5 h-1.5 rounded-full bg-lilac shadow-[0_0_10px_2px_rgba(134,135,190,0.8)]" />
                 🇿🇦 Built for South African businesses
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold mb-7 leading-[1.05]">
                 Payroll made simple.<br />
-                <span className="text-indigo-400">Compliance made easy.</span>
+                <span className="text-shine">Compliance made easy.</span>
               </h1>
-              <p className="text-lg sm:text-xl text-indigo-200 max-w-2xl mx-auto mb-10">
+              <p className="text-lg sm:text-xl text-silver max-w-2xl mx-auto mb-11 leading-relaxed">
                 NexEra is a cloud-based payroll and people management platform built specifically for South African businesses. SARS compliant, secure, and easy to use.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/contact"
-                  className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg"
+                  className="btn-primary font-semibold px-8 py-3.5 rounded-full text-lg"
                 >
                   Get Started
                 </a>
                 <Link
                   href="/pricing"
-                  className="border border-indigo-500 hover:bg-indigo-800 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-lg"
+                  className="btn-ghost font-semibold px-8 py-3.5 rounded-full text-lg"
                 >
                   View Pricing
                 </Link>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center w-full h-full justify-center gap-4">
+            <div key={slide.src} className="flex flex-col items-center w-full h-full justify-center gap-5 animate-rise">
               <div className="text-center mt-2">
-                <span className="inline-block bg-indigo-700/60 border border-indigo-600 rounded-full px-4 py-1 text-sm text-indigo-200 mb-2">
+                <span className="eyebrow inline-block rounded-full px-4 py-1.5 mb-3 border border-white/10 bg-white/[0.04]">
                   {slide.label}
                 </span>
-                <p className="text-indigo-200 text-sm sm:text-base max-w-2xl mx-auto">
+                <p className="text-silver text-sm sm:text-base max-w-2xl mx-auto">
                   {slide.caption}
                 </p>
               </div>
@@ -132,7 +141,7 @@ export default function HeroCarousel() {
                   alt={slide.label}
                   width={1920}
                   height={slide.src === "/screenshots/portal.png" ? 870 : 933}
-                  className="max-w-full max-h-full w-auto h-auto object-contain rounded-xl shadow-2xl border border-indigo-700/40"
+                  className="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl ring-1 ring-white/10 shadow-[0_40px_120px_-30px_rgba(125,112,214,0.65)]"
                   priority={current === 1}
                 />
               </div>
@@ -142,15 +151,15 @@ export default function HeroCarousel() {
       </div>
 
       {/* Dots */}
-      <div className="flex justify-center gap-2 py-4 flex-shrink-0">
+      <div className="relative flex justify-center gap-2 py-5 flex-shrink-0">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             className={`rounded-full transition-all duration-300 ${
               i === current
-                ? "w-6 h-2 bg-indigo-400"
-                : "w-2 h-2 bg-indigo-700 hover:bg-indigo-500"
+                ? "w-7 h-2 bg-gradient-to-r from-lilac to-amethyst-bright shadow-[0_0_12px_rgba(134,135,190,0.8)]"
+                : "w-2 h-2 bg-white/20 hover:bg-white/40"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />

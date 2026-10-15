@@ -1,43 +1,44 @@
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import { PageHeader } from "@/components/brand";
+import { IconTile } from "@/components/icons";
 
 export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main className="pt-24">
-        <section className="py-16 bg-gradient-to-br from-indigo-950 to-slate-900 text-white text-center">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6">
-            <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-            <p className="text-indigo-200">We&apos;re here to help. Reach out and we&apos;ll get back to you.</p>
-          </div>
-        </section>
+      <main>
+        <PageHeader eyebrow="Contact" title="Contact Us" subtitle="We're here to help. Reach out and we'll get back to you." />
 
-        <section className="py-16 bg-gray-50">
+        <section className="pb-24 bg-ink">
           <div className="max-w-xl mx-auto px-4 sm:px-6">
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0 text-indigo-600 font-bold text-lg">@</div>
+            <div className="reveal card-lit p-8 sm:p-10 space-y-8">
+              <div className="flex items-start gap-5">
+                <IconTile name="mail" />
                 <div>
-                  <div className="text-sm font-semibold text-gray-500 mb-0.5">Email</div>
-                  <div className="text-gray-900 font-medium">info@nexerapayroll.co.za</div>
+                  <div className="eyebrow mb-1.5">Email</div>
+                  <div className="text-white font-medium text-lg">info@nexerapayroll.co.za</div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0 text-indigo-600 font-bold text-lg">#</div>
+              <div className="h-px bg-white/[0.07]" />
+
+              <div className="flex items-start gap-5">
+                <IconTile name="phone" />
                 <div>
-                  <div className="text-sm font-semibold text-gray-500 mb-0.5">Phone</div>
-                  <div className="text-gray-900 font-medium">+27 69 857 4895</div>
+                  <div className="eyebrow mb-1.5">Phone</div>
+                  <div className="text-white font-medium text-lg">+27 69 857 4895</div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0 text-indigo-600 font-bold text-lg">⏰</div>
+              <div className="h-px bg-white/[0.07]" />
+
+              <div className="flex items-start gap-5">
+                <IconTile name="clock" />
                 <div>
-                  <div className="text-sm font-semibold text-gray-500 mb-0.5">Office Hours</div>
-                  <div className="text-gray-900 font-medium">Monday – Friday</div>
-                  <div className="text-gray-500 text-sm">8:00am – 5:00pm</div>
+                  <div className="eyebrow mb-1.5">Office Hours</div>
+                  <div className="text-white font-medium text-lg">Monday – Friday</div>
+                  <div className="text-silver text-sm">8:00am – 5:00pm</div>
                 </div>
               </div>
             </div>

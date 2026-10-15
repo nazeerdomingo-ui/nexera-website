@@ -1,5 +1,7 @@
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import { PageHeader, Rings } from "@/components/brand";
+import { Icon, IconTile, type IconName } from "@/components/icons";
 
 const plans = [
   {
@@ -48,48 +50,50 @@ const outsourcingTiers = [
   { employees: "101 – 1 000+ employees", price: "Custom", note: "contact us for a quote", setupFee: "Custom" },
 ];
 
+const outsourcingSteps: { title: string; desc: string; icon: IconName }[] = [
+  { title: "We Calculate", desc: "PAYE, UIF, SDL, and all deductions calculated accurately every month.", icon: "calc" },
+  { title: "We Submit", desc: "EMP201 returns, UIF declarations, and IRP5 certificates handled on your behalf.", icon: "send" },
+  { title: "We Report", desc: "Payslips distributed and management reports delivered — nothing for you to do.", icon: "chart" },
+];
+
 export default function PricingPage() {
   return (
     <>
       <Nav />
-      <main className="pt-24">
-        <section className="py-16 bg-gradient-to-br from-indigo-950 to-slate-900 text-white text-center">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6">
-            <h1 className="text-4xl font-bold mb-4">Simple, transparent pricing</h1>
-            <p className="text-indigo-200">No hidden fees. Cancel anytime. All plans include an annual service fee.</p>
-          </div>
-        </section>
+      <main>
+        <PageHeader eyebrow="Pricing" title="Simple, transparent pricing" subtitle="No hidden fees. Cancel anytime. All plans include an annual service fee." />
 
-        <section className="py-16 bg-gray-50">
+        <section className="pb-24 bg-ink">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Subscription Plans</h2>
-              <p className="text-gray-500 max-w-2xl mx-auto">Choose the plan that fits your business. All plans include full access to NexEra&apos;s payroll and people management features.</p>
+            <div className="reveal text-center mb-12">
+              <h2 className="font-display text-3xl font-bold text-white mb-3">Subscription Plans</h2>
+              <p className="text-silver max-w-2xl mx-auto">Choose the plan that fits your business. All plans include full access to NexEra&apos;s payroll and people management features.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
               {plans.map((plan) => (
-                <div key={plan.name} className={`rounded-2xl p-6 border-2 flex flex-col ${plan.popular ? "border-indigo-600 bg-indigo-600 text-white shadow-xl scale-105" : plan.trial ? "border-emerald-400 bg-emerald-50 text-gray-900" : "border-gray-200 bg-white text-gray-900"}`}>
-                  {plan.popular && <div className="text-xs font-semibold uppercase tracking-wide text-indigo-200 mb-2">Most Popular</div>}
-                  {plan.trial && <div className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">30 Days Free</div>}
-                  <div className="font-bold text-lg mb-1">{plan.name}</div>
-                  <div className={`text-3xl font-bold mb-1 ${plan.popular ? "text-white" : plan.trial ? "text-emerald-600" : "text-indigo-600"}`}>
-                    {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal">/mo</span>}
+                <div key={plan.name} className={`reveal p-6 flex flex-col transition-transform duration-300 hover:-translate-y-1 ${plan.popular ? "card-lit lg:scale-105 z-10" : plan.trial ? "card !border-emerald-400/40" : "card"}`}>
+                  <div className={`text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-3 ${plan.popular ? "text-haze" : plan.trial ? "text-emerald-400" : "invisible"}`}>
+                    {plan.popular ? "Most Popular" : plan.trial ? "30 Days Free" : "Plan"}
                   </div>
-                  <div className={`text-sm mb-1 ${plan.popular ? "text-indigo-200" : "text-gray-500"}`}>{plan.employees}</div>
-                  <div className={`text-xs mb-4 ${plan.popular ? "text-indigo-300" : "text-gray-400"}`}>
+                  <div className="font-display font-semibold text-lg text-white mb-2">{plan.name}</div>
+                  <div className={`font-display text-3xl font-bold mb-1 ${plan.trial ? "text-emerald-400" : "text-white"}`}>
+                    {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal text-silver/70">/mo</span>}
+                  </div>
+                  <div className="text-sm mb-1 text-silver">{plan.employees}</div>
+                  <div className="text-xs mb-5 text-silver/60">
                     {plan.trial ? plan.annualFee : (
                       <>Annual service fee:<br />{plan.annualFee}</>
                     )}
                   </div>
-                  <ul className="space-y-2 flex-1">
+                  <ul className="space-y-2.5 flex-1 border-t border-white/[0.07] pt-5">
                     {plan.features.map((f) => (
-                      <li key={f} className={`text-sm flex items-start gap-2 ${plan.popular ? "text-indigo-100" : "text-gray-600"}`}>
-                        <span className="mt-0.5">✓</span>{f}
+                      <li key={f} className="text-sm flex items-start gap-2 text-silver/90">
+                        <Icon name="check" className={`w-4 h-4 mt-0.5 shrink-0 ${plan.trial ? "text-emerald-400" : "text-lilac"}`} />{f}
                       </li>
                     ))}
                   </ul>
                   <a href="/contact"
-                    className={`mt-6 block text-center font-semibold py-2.5 rounded-xl transition-colors text-sm ${plan.popular ? "bg-white text-indigo-600 hover:bg-indigo-50" : plan.trial ? "bg-emerald-500 text-white hover:bg-emerald-600" : "bg-indigo-600 text-white hover:bg-indigo-700"}`}>
+                    className={`mt-6 block text-center font-semibold py-2.5 rounded-full transition-colors text-sm ${plan.popular ? "bg-white text-ink hover:bg-haze" : plan.trial ? "bg-emerald-500 text-white hover:bg-emerald-400" : "btn-primary"}`}>
                     {plan.trial ? "Start Free Trial" : "Get Started"}
                   </a>
                 </div>
@@ -97,26 +101,23 @@ export default function PricingPage() {
             </div>
 
             {/* Add-ons */}
-            <div className="mt-14">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Add-ons</h2>
-                <p className="text-gray-500 max-w-2xl mx-auto">Extend any plan with optional features. Add-ons are billed monthly alongside your subscription.</p>
+            <div className="mt-24">
+              <div className="reveal text-center mb-10">
+                <div className="eyebrow mb-3">Extras</div>
+                <h2 className="font-display text-3xl font-bold text-white mb-3">Add-ons</h2>
+                <p className="text-silver max-w-2xl mx-auto">Extend any plan with optional features. Add-ons are billed monthly alongside your subscription.</p>
               </div>
-              <div className="max-w-xl mx-auto bg-white border-2 border-indigo-100 rounded-2xl p-6 flex items-start gap-5 shadow-sm">
-                <div className="bg-indigo-50 rounded-xl p-3 shrink-0">
-                  <svg className="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
-                  </svg>
-                </div>
+              <div className="reveal max-w-2xl mx-auto card-lit p-7 sm:p-8 flex flex-col sm:flex-row items-start gap-6">
+                <IconTile name="monitor" />
                 <div className="flex-1">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="font-bold text-gray-900 text-lg">Employee Self-Service Portal (SSP)</div>
-                    <div className="text-indigo-600 font-bold text-xl whitespace-nowrap">R999<span className="text-sm font-normal text-gray-400">/mo</span></div>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <div className="font-display font-bold text-white text-lg">Employee Self-Service Portal (SSP)</div>
+                    <div className="font-display text-white font-bold text-2xl whitespace-nowrap">R999<span className="text-sm font-normal text-silver/70">/mo</span></div>
                   </div>
-                  <p className="text-gray-500 text-sm mt-1.5">Give your employees their own secure portal to view payslips, apply for leave, update personal details, and download tax documents — available on any plan.</p>
-                  <ul className="mt-3 space-y-1">
+                  <p className="text-silver text-sm mt-2 leading-relaxed">Give your employees their own secure portal to view payslips, apply for leave, update personal details, and download tax documents — available on any plan.</p>
+                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {["Employee payslip access", "Leave application & approval", "Personal details update", "IRP5 & tax document downloads", "Mobile-friendly interface"].map((f) => (
-                      <li key={f} className="text-sm text-gray-600 flex items-center gap-2"><span className="text-indigo-500">✓</span>{f}</li>
+                      <li key={f} className="text-sm text-silver/90 flex items-center gap-2"><Icon name="check" className="w-4 h-4 text-lilac shrink-0" />{f}</li>
                     ))}
                   </ul>
                 </div>
@@ -124,55 +125,54 @@ export default function PricingPage() {
             </div>
 
             {/* Payroll Management Outsourcing */}
-            <div className="mt-16">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Payroll Management Outsourcing</h2>
-                <p className="text-gray-500 max-w-2xl mx-auto">Don&apos;t want to run payroll yourself? Let NexEra manage your entire payroll process — from calculations and payslips to UIF submissions and IRP5 certificates. We handle it all so you can focus on running your business.</p>
+            <div className="mt-24">
+              <div className="reveal text-center mb-10">
+                <div className="eyebrow mb-3">Done for you</div>
+                <h2 className="font-display text-3xl font-bold text-white mb-3">Payroll Management Outsourcing</h2>
+                <p className="text-silver max-w-2xl mx-auto">Don&apos;t want to run payroll yourself? Let NexEra manage your entire payroll process — from calculations and payslips to UIF submissions and IRP5 certificates. We handle it all so you can focus on running your business.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                {[
-                  { title: "We Calculate", desc: "PAYE, UIF, SDL, and all deductions calculated accurately every month." },
-                  { title: "We Submit", desc: "EMP201 returns, UIF declarations, and IRP5 certificates handled on your behalf." },
-                  { title: "We Report", desc: "Payslips distributed and management reports delivered — nothing for you to do." },
-                ].map((item) => (
-                  <div key={item.title} className="bg-indigo-50 rounded-2xl p-6 text-center">
-                    <h3 className="font-bold text-indigo-700 mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+                {outsourcingSteps.map((item) => (
+                  <div key={item.title} className="reveal card p-7 text-center flex flex-col items-center">
+                    <div className="mb-4"><IconTile name={item.icon} /></div>
+                    <h3 className="font-display font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-silver/90">{item.desc}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-6">
-                <div className="bg-indigo-600 px-6 py-4">
-                  <div className="grid grid-cols-3 items-center text-white text-sm font-semibold">
+              <div className="reveal card overflow-hidden mb-6 !rounded-2xl">
+                <div className="bg-gradient-to-r from-amethyst/60 to-amethyst/20 border-b border-white/[0.08] px-6 py-4">
+                  <div className="grid grid-cols-3 items-center text-white text-xs sm:text-sm font-semibold tracking-wide">
                     <span>Company Size</span>
                     <span className="text-right">Monthly Fee</span>
                     <span className="text-right">Setup Fee</span>
                   </div>
                 </div>
                 {outsourcingTiers.map((tier, i) => (
-                  <div key={tier.employees} className={`grid grid-cols-3 items-center px-6 py-4 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-                    <span className="text-gray-700 font-medium">{tier.employees}</span>
+                  <div key={tier.employees} className={`grid grid-cols-3 items-center px-6 py-4 transition-colors hover:bg-white/[0.04] ${i % 2 === 1 ? "bg-white/[0.02]" : ""} ${i > 0 ? "border-t border-white/[0.05]" : ""}`}>
+                    <span className="text-silver font-medium text-sm sm:text-base">{tier.employees}</span>
                     <div className="text-right">
-                      <span className={`font-bold ${tier.price === "Custom" ? "text-indigo-600" : "text-gray-900"}`}>{tier.price}</span>
-                      <span className="text-gray-400 text-xs ml-1">{tier.note}</span>
+                      <span className={`font-display font-bold ${tier.price === "Custom" ? "text-lilac" : "text-white"}`}>{tier.price}</span>
+                      <span className="text-silver/60 text-xs ml-1">{tier.note}</span>
                     </div>
                     <div className="text-right">
-                      <span className={`font-bold ${tier.setupFee === "Custom" ? "text-indigo-600" : "text-gray-900"}`}>{tier.setupFee}</span>
+                      <span className={`font-display font-bold ${tier.setupFee === "Custom" ? "text-lilac" : "text-white"}`}>{tier.setupFee}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <div className="text-lg font-bold mb-1">A once-off setup fee applies</div>
-                  <p className="text-indigo-100 text-sm max-w-md">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform — see pricing by company size above. Custom quotes for 101+ employees.</p>
+              <div className="reveal relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#2a2448] via-[#171329] to-ink p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+                <Rings className="w-[340px] -right-32 -bottom-48 opacity-70" />
+                <div className="relative">
+                  <div className="font-display text-xl font-bold mb-2">A once-off setup fee applies</div>
+                  <p className="text-haze/80 text-sm max-w-md leading-relaxed">Covers full setup, data migration, and onboarding of your employees onto the NexEra platform — see pricing by company size above. Custom quotes for 101+ employees.</p>
                 </div>
-                <div className="text-center shrink-0">
-                  <div className="text-indigo-200 text-sm mb-3">Interested? Get in touch:</div>
-                  <a href="mailto:info@nexerapayroll.co.za" className="block bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl hover:bg-indigo-50 transition-colors">
+                <div className="relative text-center shrink-0">
+                  <div className="text-haze/70 text-sm mb-3">Interested? Get in touch:</div>
+                  <a href="mailto:info@nexerapayroll.co.za" className="block bg-white text-ink font-semibold px-6 py-3 rounded-full hover:bg-haze transition-colors">
                     info@nexerapayroll.co.za
                   </a>
                 </div>
