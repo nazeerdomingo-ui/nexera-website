@@ -31,7 +31,7 @@ export default function Nav() {
           <LogoMark className="w-9 h-9" />
           <div>
             <Wordmark />
-            <div className="text-[7px] text-silver/70 tracking-[0.18em] uppercase mt-1">Payroll and People Management Systems</div>
+            <div className="hidden sm:block text-[9px] text-silver/85 tracking-[0.16em] uppercase mt-1">Payroll and People Management Systems</div>
           </div>
         </Link>
 

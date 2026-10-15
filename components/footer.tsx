@@ -12,7 +12,7 @@ export default function Footer() {
               <LogoMark className="w-11 h-11" />
               <div>
                 <Wordmark size="text-2xl" />
-                <div className="text-[8px] text-silver/70 tracking-[0.22em] uppercase mt-1.5">Payroll and People Management Systems</div>
+                <div className="text-[10px] text-silver/85 tracking-[0.18em] uppercase mt-1.5">Payroll and People Management Systems</div>
               </div>
             </div>
             <p className="text-sm">Payroll and People Management Systems for South African businesses.</p>
@@ -35,7 +35,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-white/[0.06] pt-6 text-center text-xs text-silver/60">
+        <div className="border-t border-white/[0.06] pt-6 text-center text-xs text-silver/80">
           © {new Date().getFullYear()} NexEra Payroll. All rights reserved.
         </div>
       </div>

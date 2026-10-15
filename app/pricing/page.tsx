@@ -76,11 +76,11 @@ export default function PricingPage() {
                     {plan.popular ? "Most Popular" : plan.trial ? "30 Days Free" : "Plan"}
                   </div>
                   <div className="font-display font-semibold text-lg text-white mb-2">{plan.name}</div>
-                  <div className={`font-display text-3xl font-bold mb-1 ${plan.trial ? "text-emerald-400" : "text-white"}`}>
-                    {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal text-silver/70">/mo</span>}
+                  <div className={`font-display text-3xl font-bold mb-1 ${plan.popular ? "text-glow" : plan.trial ? "text-emerald-400" : "text-white"}`}>
+                    {plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal text-silver/80">/mo</span>}
                   </div>
                   <div className="text-sm mb-1 text-silver">{plan.employees}</div>
-                  <div className="text-xs mb-5 text-silver/60">
+                  <div className="text-xs mb-5 text-silver/80">
                     {plan.trial ? plan.annualFee : (
                       <>Annual service fee:<br />{plan.annualFee}</>
                     )}
@@ -112,7 +112,7 @@ export default function PricingPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                     <div className="font-display font-bold text-white text-lg">Employee Self-Service Portal (SSP)</div>
-                    <div className="font-display text-white font-bold text-2xl whitespace-nowrap">R999<span className="text-sm font-normal text-silver/70">/mo</span></div>
+                    <div className="font-display text-white font-bold text-2xl whitespace-nowrap">R999<span className="text-sm font-normal text-silver/80">/mo</span></div>
                   </div>
                   <p className="text-silver text-sm mt-2 leading-relaxed">Give your employees their own secure portal to view payslips, apply for leave, update personal details, and download tax documents — available on any plan.</p>
                   <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -155,7 +155,7 @@ export default function PricingPage() {
                     <span className="text-silver font-medium text-sm sm:text-base">{tier.employees}</span>
                     <div className="text-right">
                       <span className={`font-display font-bold ${tier.price === "Custom" ? "text-lilac" : "text-white"}`}>{tier.price}</span>
-                      <span className="text-silver/60 text-xs ml-1">{tier.note}</span>
+                      <span className="text-silver/80 text-xs ml-1">{tier.note}</span>
                     </div>
                     <div className="text-right">
                       <span className={`font-display font-bold ${tier.setupFee === "Custom" ? "text-lilac" : "text-white"}`}>{tier.setupFee}</span>

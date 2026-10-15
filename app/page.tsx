@@ -42,7 +42,7 @@ export default function Home() {
         <div className="relative border-y border-white/[0.06] bg-ink-2 py-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
           <div className="flex w-max animate-marquee">
             {[...ticker, ...ticker].map((t, i) => (
-              <span key={i} className="flex items-center gap-10 pr-10 font-display text-sm tracking-[0.2em] uppercase text-silver/70 whitespace-nowrap">
+              <span key={i} className="flex items-center gap-10 pr-10 font-display text-sm tracking-[0.2em] uppercase text-silver/80 whitespace-nowrap">
                 {t}<span className="w-1 h-1 rounded-full bg-lilac/60" />
               </span>
             ))}
@@ -73,28 +73,28 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing preview */}
-        <section className="relative py-24 sm:py-28 bg-ink-2 border-t border-white/[0.04] overflow-hidden">
-          <div className="absolute inset-0 bg-grid opacity-60" />
+        {/* Pricing preview: the one light section, so prices are easy to scan */}
+        <section className="relative py-24 sm:py-28 bg-mist text-ink overflow-hidden">
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[900px] max-w-full h-[360px] rounded-full bg-glow/25 blur-[120px]" />
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <div className="reveal">
-              <div className="eyebrow mb-4">Pricing</div>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Simple, transparent pricing</h2>
-              <p className="text-silver mb-14">Start free for 30 days. Paid plans from R999/month. No hidden fees.</p>
+              <div className="eyebrow !text-amethyst mb-4">Pricing</div>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink mb-4">Simple, transparent pricing</h2>
+              <p className="text-[#55526a] mb-14">Start free for 30 days. Paid plans from R999/month. No hidden fees.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-12 items-center">
               {previewPlans.map((plan) => (
-                <div key={plan.name} className={`reveal p-6 text-left transition-transform duration-300 hover:-translate-y-1 ${plan.popular ? "card-lit lg:py-10" : plan.trial ? "card !border-emerald-400/40" : "card"}`}>
-                  <div className={`text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-3 ${plan.popular ? "text-haze" : plan.trial ? "text-emerald-400" : "invisible"}`}>
+                <div key={plan.name} className={`reveal p-6 text-left rounded-[1.25rem] transition-all duration-300 hover:-translate-y-1 ${plan.popular ? "card-lit text-white lg:py-10" : plan.trial ? "bg-white border border-emerald-500/40 shadow-[0_12px_40px_-20px_rgba(5,150,105,0.45)]" : "bg-white border border-[#e3e0f1] shadow-[0_12px_40px_-24px_rgba(98,88,156,0.45)] hover:border-lilac"}`}>
+                  <div className={`text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-3 ${plan.popular ? "text-glow" : plan.trial ? "text-emerald-700" : "invisible"}`}>
                     {plan.popular ? "Most Popular" : plan.trial ? "30 Days Free" : "Plan"}
                   </div>
-                  <div className="font-display font-semibold text-lg text-white mb-2">{plan.name}</div>
-                  <div className={`font-display text-3xl font-bold mb-1 ${plan.trial ? "text-emerald-400" : "text-white"}`}>{plan.price}{plan.price !== "Custom" && <span className="text-sm font-normal text-silver/70">/mo</span>}</div>
-                  <div className="text-sm text-silver/80">{plan.employees}</div>
+                  <div className={`font-display font-semibold text-lg mb-2 ${plan.popular ? "text-white" : "text-ink"}`}>{plan.name}</div>
+                  <div className={`font-display text-3xl font-bold mb-1 ${plan.popular ? "text-glow" : plan.trial ? "text-emerald-700" : "text-ink"}`}>{plan.price}{plan.price !== "Custom" && <span className={`text-sm font-normal ${plan.popular ? "text-silver" : "text-[#6b6880]"}`}>/mo</span>}</div>
+                  <div className={`text-sm ${plan.popular ? "text-silver" : "text-[#55526a]"}`}>{plan.employees}</div>
                 </div>
               ))}
             </div>
-            <Link href="/pricing" className="btn-primary inline-block font-semibold px-8 py-3.5 rounded-full">
+            <Link href="/pricing" className="inline-block bg-ink text-white hover:bg-[#1d1930] font-semibold px-8 py-3.5 rounded-full transition-colors shadow-[0_14px_36px_-12px_rgba(7,6,11,0.6)]">
               See Full Pricing
             </Link>
           </div>
