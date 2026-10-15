@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,7 +7,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="mb-3">
-              <Image src="/nexera-logo.png" alt="NexEra Logo" width={220} height={75} className="object-contain" />
+              <div className="flex items-center gap-3" aria-label="NexEra Logo">
+                <svg viewBox="0 0 50 50" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="25" cy="25" r="21" fill="none" stroke="#62589C" strokeWidth="2.5" strokeDasharray="118 14" strokeLinecap="round"/>
+                  <rect x="16" y="13" width="4" height="24" fill="#62589C"/>
+                  <polygon points="20,13 23,13 30,37 27,37" fill="#8687BE"/>
+                  <rect x="30" y="13" width="4" height="24" fill="#62589C"/>
+                </svg>
+                <div className="text-2xl leading-none tracking-tight font-bold">
+                  <span className="text-white">Nex</span><span className="text-indigo-400">Era</span>
+                </div>
+              </div>
             </div>
             <p className="text-sm">Payroll and People Management Systems for South African businesses.</p>
           </div>

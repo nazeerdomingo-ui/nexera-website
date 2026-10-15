@@ -5,6 +5,27 @@
   --foreground: #171717;
 }
 
+/* Brand palette taken from the NexEra business card.
+   The site's indigo-* and slate-* classes are remapped here so every page
+   picks up the card's purple, lavender and charcoal-black. */
+@theme {
+  --color-indigo-50: #f4f3f9;
+  --color-indigo-100: #e8e6f2;
+  --color-indigo-200: #d2cee6;
+  --color-indigo-300: #b3aed3;
+  --color-indigo-400: #8687be; /* card lavender: "Era", N diagonal */
+  --color-indigo-500: #7369ae;
+  --color-indigo-600: #62589c; /* card purple: logo ring and bars */
+  --color-indigo-700: #514887;
+  --color-indigo-800: #41396d;
+  --color-indigo-900: #282340;
+  --color-indigo-950: #110f1c;
+
+  --color-slate-400: #bbbdbf; /* card tagline grey */
+  --color-slate-800: #2e3234; /* card charcoal arc */
+  --color-slate-900: #010004; /* card background */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

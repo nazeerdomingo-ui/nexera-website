@@ -20,10 +20,10 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
           <svg viewBox="0 0 50 50" className="w-9 h-9" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="25" cy="25" r="21" fill="none" stroke="#4F46E5" strokeWidth="2.5" strokeDasharray="118 14" strokeLinecap="round"/>
-            <rect x="16" y="13" width="4" height="24" fill="#4338CA"/>
-            <polygon points="20,13 23,13 30,37 27,37" fill="#818CF8"/>
-            <rect x="30" y="13" width="4" height="24" fill="#4338CA"/>
+            <circle cx="25" cy="25" r="21" fill="none" stroke="#62589C" strokeWidth="2.5" strokeDasharray="118 14" strokeLinecap="round"/>
+            <rect x="16" y="13" width="4" height="24" fill="#62589C"/>
+            <polygon points="20,13 23,13 30,37 27,37" fill="#8687BE"/>
+            <rect x="30" y="13" width="4" height="24" fill="#62589C"/>
           </svg>
           <div>
             <div className="text-[16px] leading-none tracking-tight font-bold">
